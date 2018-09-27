@@ -18,6 +18,8 @@ describe('microargs', () => {
     expect(microargs(['--abc=123'])).toEqual({params: [], options: {abc: 123}})
     expect(microargs(['-a=http://www.google.com'])).toEqual({params: [], options: {a: 'http://www.google.com'}})
     expect(microargs(['--abc=http://www.google.com'])).toEqual({params: [], options: {abc: 'http://www.google.com'}})
+    expect(microargs(['-s=hello world'])).toEqual({params: [], options: {s: 'hello world'}})
+    expect(microargs(['--say=hello world'])).toEqual({params: [], options: {say: 'hello world'}})
   })
 
   it('parses params and options combined', () => {

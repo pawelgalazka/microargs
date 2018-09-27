@@ -1,14 +1,14 @@
 module.exports = (args) => {
   const options = {}
   const params = args.filter(arg => {
-    const doubleDashMatch = arg.match(/^--(\w[\w-.]*)(=(\S+))?$/)
+    const doubleDashMatch = arg.match(/^--(\w[\w-.]*)(=(.+))?$/)
 
     if (doubleDashMatch) {
       options[doubleDashMatch[1]] = Number(doubleDashMatch[3]) || doubleDashMatch[3] || true
       return false
     }
 
-    const singleDashMatch = arg.match(/^-(\w)(=(\S+))?$/)
+    const singleDashMatch = arg.match(/^-(\w)(=(.+))?$/)
 
     if (singleDashMatch) {
       options[singleDashMatch[1]] = Number(singleDashMatch[3]) || singleDashMatch[3] || true
